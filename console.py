@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 import cmd
+from os import sys
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb)"
     def do_quit(self, arg):
         """
     press quit to exit the program
         """
-        return True
+        sys.exit(0)
 
     def do_EOF(self, arg):
         """
