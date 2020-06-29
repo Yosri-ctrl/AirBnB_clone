@@ -2,6 +2,7 @@
 """
 """
 from models.base_model import BaseModel
+from models.user import User
 import models
 import json
 
@@ -9,7 +10,8 @@ import json
 class FileStorage():
     """
     """
-    dict = {'BaseModel': BaseModel}
+    dict = {'BaseModel': BaseModel,
+            'User': User}
     __file_path = "file.json"
     __objects = {}
 
