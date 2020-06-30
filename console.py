@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+creating console to manipulate classes
+"""
 import cmd
 from os import sys
 from models.base_model import BaseModel
