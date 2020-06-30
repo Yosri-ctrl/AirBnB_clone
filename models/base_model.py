@@ -12,12 +12,13 @@ class BaseModel():
     """
     BaseModule
     id: string - assign with an uuid when an instance is created
-    created_at: datetime - assign with the current datetime when an instance is created
-    updated_at: datetime - assign with the current datetime when an instance is created
+    created_at: datetime - assign with the current datetime
+    updated_at: datetime - assign with the current datetime
     and it will be updated every time you change your object
     """
-    
+
     f = "%Y-%m-%dT%H:%M:%S.%f"
+
     def __init__(self, *args, **kwargs):
         """
         """
@@ -35,17 +36,21 @@ class BaseModel():
 
     def __str__(self):
         """
+        string representation
         """
-        return "[{}] ({}) {}".format(type(self).__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(type(self).__name__, self.id,
+                                     self.__dict__)
 
     def save(self):
         """
+        save function
         """
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
         """
+        change to dictionary
         """
         dict = self.__dict__
         dict["created_at"] = datetime.now().isoformat()
