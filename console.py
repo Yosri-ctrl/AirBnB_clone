@@ -126,7 +126,6 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, line):
         objectives = storage.all().keys()
-        idé = storage.all()[id]
         line = line.split(".")
         if line[1] == "all()":
             self.do_all(line[0])
