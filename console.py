@@ -3,6 +3,7 @@
 creating console to manipulate classes
 """
 import cmd
+from shlex import split
 from os import sys
 from models.base_model import BaseModel
 from models import storage
@@ -123,11 +124,10 @@ class HBNBCommand(cmd.Cmd):
                     objs.append(objects.__str__())
         print(objs)
 
-    def do_User(self, arg):
-        arg = arg.split()
-        h = arg[0]
-        if(h == ".all()"):
-            self.do_all("User")
+    def default(self, line):
+        line = line.split(".")
+        if line[1] == "all()":
+            return self.do_all(line[0])
 
     def do_update(self, arg):
         """
