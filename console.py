@@ -112,17 +112,23 @@ class HBNBCommand(cmd.Cmd):
         """
         objs = []
         arg = arg.split()
-
+        h = arg[0]
         if arg and arg[0] not in HBNBCommand.dict.keys():
             print("** class doesn't exist **")
             return
         if len(arg) == 0:
             objs = [i.__str__() for i in storage.all().values()]
+
         else:
             for objects in storage.all().values():
                 if arg[0] in HBNBCommand.dict.keys():
                     objs.append(objects.__str__())
         print(objs)
+
+    def do_User(self, arg):
+        arg = arg.split()
+        if (arg[0] == ".all()"):
+            self.do_all("User")
 
     def do_update(self, arg):
         """
