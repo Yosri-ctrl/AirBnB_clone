@@ -125,9 +125,13 @@ class HBNBCommand(cmd.Cmd):
         print(objs)
 
     def default(self, line):
+        objectives = storage.all().keys()
+        idé = storage.all()[id]
         line = line.split(".")
         if line[1] == "all()":
-            return self.do_all(line[0])
+            self.do_all(line[0])
+        elif line[1] == "count()":
+            print(len(objectives))
 
     def do_update(self, arg):
         """
