@@ -23,9 +23,13 @@ class TestUser(unittest.TestCase):
         user.password = "root"
         user.save()
         self.assertIsInstance(user, User)
+        self.assertIsInstance(user.first_name, str)
         self.assertEqual(user.first_name, "hello")
+        self.assertIsInstance(user.last_name, str)
         self.assertEqual(user.last_name, "world")
+        self.assertIsInstance(user.email, str)
         self.assertEqual(user.email, "airbnb@helloworld.com")
+        self.assertIsInstance(user.password, str)
         self.assertEqual(user.password, "root")
         
 
