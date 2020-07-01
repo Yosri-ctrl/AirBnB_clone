@@ -13,6 +13,7 @@ from models.place import Place
 from models.amenity import Amenity
 from models.state import State
 from models.review import Review
+import re
 
 
 class HBNBCommand(cmd.Cmd):
@@ -125,11 +126,21 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, line):
         objectives = storage.all().keys()
+        line = line.replace("(", ".").replace(")", ".")
         line = line.split(".")
+        """print(line[0], line[1], line[2])
+        return"""
+
         if line[1] == "all()":
             self.do_all(line[0])
         elif line[1] == "count()":
             print(len(objectives))
+        elif line[1] == "show":
+            r = line[0] + " " + line[2]
+            self.do_show(r)
+        elif line[1] == "destroy":
+            r = line[0] + " " + line[2]
+            self.do_destroy(r)
 
     def do_update(self, arg):
         """
