@@ -59,5 +59,25 @@ class TestStringMethods(unittest.TestCase):
         f = test.updated_at
         self.assertNotEqual(r, f)
 
+    def test_kwargs(self):
+        test = BaseModel()
+        test.name = "hi"
+        test.number = 99
+        id = str(uuid.uuid4())
+        test_dict = test.to_dict()
+
+        f = {'id': test.id,
+        'created_at': test.created_at,
+        'updated_at': test.updated_at,
+        'name': test.name,
+        'number': test.number,
+        '__class__': type(test).__name__}
+
+        self.assertNotEqual(test.id, id)
+        self.assertEqual(test.name, "hi")
+        self.assertEqual(test.number, 99)
+        self.assertEqual(test_dict, f)
+
+
 if __name__ == '__main__':
     unittest.main()
