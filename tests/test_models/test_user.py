@@ -17,34 +17,29 @@ class TestUser(unittest.TestCase):
     """
     def test_user(self):
         user = User()
-        user.save()
         self.assertIsInstance(user, User)
 
     def test_first_name(self):
         user = User()
         user.first_name = "hello"
-        user.save()
         self.assertIsInstance(user.first_name, str)
         self.assertEqual(user.first_name, "hello")
 
     def test_last_name(self):
         user = User()
         user.last_name = "world"
-        user.save()
         self.assertIsInstance(user.last_name, str)
         self.assertEqual(user.last_name, "world")
 
     def test_email(self):
         user = User()
         user.email = "airbnb@helloworld.com"
-        user.save()
         self.assertIsInstance(user.email, str)
         self.assertEqual(user.email, "airbnb@helloworld.com")
 
     def test_root(self):
         user = User()
         user.password = "root"
-        user.save()
         self.assertIsInstance(user.password, str)
         self.assertEqual(user.password, "root")
 
