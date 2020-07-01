@@ -126,27 +126,23 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, line):
         objectives = storage.all().keys()
+        line = line.replace("(", ".").replace(")", ".")
+        line = line.replace(", ", ".")
+        line = line.split(".")
+        """print(line[0], line[1], line[2], line[3], line[4])
+        return"""
 
-        if line[1] == "all()":
-            line = line.split(".")
+        if line[1] == "all":
             self.do_all(line[0])
-        elif line[1] == "count()":
-            line = line.split(".")
+        elif line[1] == "count":
             print(len(objectives))
         elif line[1] == "show":
-            line = line.replace("(", ".").replace(")", ".")
-            line = line.split(".")
             r = line[0] + " " + line[2]
             self.do_show(r)
         elif line[1] == "destroy":
-            line = line.replace("(", ".").replace(")", ".")
-            line = line.split(".")
             r = line[0] + " " + line[2]
             self.do_destroy(r)
         elif line[1] == "update":
-            line = line.replace("(", ".").replace(")", ".")
-            line = line.replace(", ", ".")
-            line = line.split(".")
             h = line[0] + " " + line[2] + " " + line[3] + " " + line[4]
             self.do_update(h)
 
