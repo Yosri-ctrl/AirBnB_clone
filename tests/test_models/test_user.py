@@ -19,7 +19,7 @@ class TestUser(unittest.TestCase):
         """
         user = User()
         self.assertIsInstance(user, User)
-    
+
     def test_first_name(self):
         """
         first name
