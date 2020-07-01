@@ -127,8 +127,9 @@ class HBNBCommand(cmd.Cmd):
     def default(self, line):
         objectives = storage.all().keys()
         line = line.replace("(", ".").replace(")", ".")
+        line = line.replace(", ", ".")
         line = line.split(".")
-        """print(line[0], line[1], line[2])
+        """print(line[0], line[1], line[2], line[3], line[4])
         return"""
 
         if line[1] == "all()":
@@ -141,6 +142,9 @@ class HBNBCommand(cmd.Cmd):
         elif line[1] == "destroy":
             r = line[0] + " " + line[2]
             self.do_destroy(r)
+        elif line[1] == "update":
+            h = line[0] + " " + line[2] + " " + line[3] + " " + line[4]
+            self.do_update(h)
 
     def do_update(self, arg):
         """
