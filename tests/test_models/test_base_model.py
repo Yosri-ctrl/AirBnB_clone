@@ -50,18 +50,24 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(test1.updated_at, datetime.datetime)
 
     def test_str(self):
+        """
+        """
         test = BaseModel()
         r = test.__str__()
         f = "[{}] ({}) {}".format(type(test).__name__, test.id, test.__dict__)
         self.assertEqual(r, f)
 
     def test_update_time(self):
+        """
+        """
         test = BaseModel()
         r = test.created_at
         f = test.updated_at
         self.assertNotEqual(r, f)
 
     def test_updated_2(self):
+        """
+        """
         test = BaseModel()
         r = test.updated_at
         test.save()
@@ -69,6 +75,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(r, f)
 
     def test_kwargs(self):
+        """
+        """
         test = BaseModel()
         test.name = "hi"
         test.number = 99

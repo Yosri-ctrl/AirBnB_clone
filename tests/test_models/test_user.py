@@ -12,6 +12,7 @@ class TestUser(unittest.TestCase):
     """
     test the user class
     """
+
     def test_user(self):
         """
         test user
