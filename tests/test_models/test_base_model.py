@@ -9,19 +9,7 @@ import datetime
 
 class TestStringMethods(unittest.TestCase):
     """
-    def test_upper(self):
-        self.assertEqual('foo'.upper(), 'FOO')
-
-    def test_isupper(self):
-        self.assertTrue('FOO'.isupper())
-        self.assertFalse('Foo'.isupper())
-
-    def test_split(self):
-        s = 'hello world'
-        self.assertEqual(s.split(), ['hello', 'world'])
-        # check that s.split fails when the separator is not a string
-        with self.assertRaises(TypeError):
-            s.split(2)
+    Test BaseModel class
     """
 
     def test_creation_base_model(self):
@@ -58,6 +46,18 @@ class TestStringMethods(unittest.TestCase):
         test2 = BaseModel()
         self.assertNotEqual(test1.updated_at, test2.updated_at)
         self.assertIsInstance(test1.updated_at, datetime.datetime)
+
+    def test_str(self):
+        test = BaseModel()
+        r = test.__str__()
+        f = "[{}] ({}) {}".format(type(test).__name__, test.id, test.__dict__)
+        self.assertEqual(r, f)
+
+    def test_update_time(self):
+        test = BaseModel()
+        r = test.created_at
+        f = test.updated_at
+        self.assertNotEqual(r, f)
 
 if __name__ == '__main__':
     unittest.main()
