@@ -5,6 +5,7 @@ Test For BaseModel
 from models.base_model import BaseModel
 import uuid
 import datetime
+from models import storage
 
 
 class TestStringMethods(unittest.TestCase):
@@ -56,6 +57,13 @@ class TestStringMethods(unittest.TestCase):
     def test_update_time(self):
         test = BaseModel()
         r = test.created_at
+        f = test.updated_at
+        self.assertNotEqual(r, f)
+
+    def test_updated_2(self):
+        test = BaseModel()
+        r = test.updated_at
+        test.save()
         f = test.updated_at
         self.assertNotEqual(r, f)
 
