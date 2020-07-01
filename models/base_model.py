@@ -55,5 +55,6 @@ class BaseModel():
         dict = self.__dict__
         dict["created_at"] = datetime.now().isoformat()
         dict["updated_at"] = datetime.now().isoformat()
+        dict["__class__"] = str(type(self).__name__)
 
         return dict
