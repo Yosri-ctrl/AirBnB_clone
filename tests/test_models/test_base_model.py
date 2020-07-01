@@ -1,4 +1,4 @@
-import unittest
+#!/usr/bin/python3
 """
 Test For BaseModel
 """
@@ -6,9 +6,10 @@ from models.base_model import BaseModel
 import uuid
 import datetime
 from models import storage
+import unittest
 
 
-class TestStringMethods(unittest.TestCase):
+class TestBaseModel(unittest.TestCase):
     """
     Test BaseModel class
     """
