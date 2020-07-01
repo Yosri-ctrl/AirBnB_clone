@@ -23,7 +23,6 @@ class HBNBCommand(cmd.Cmd):
             'City': City,
             'Place': Place,
             'Review': Review,
-
             'State': State}
 
     def do_quit(self, arg):
